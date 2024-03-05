@@ -1,0 +1,43 @@
+<div>
+  <h2>Students</h2>
+  <input type="text" [(ngModel)]="searchKeyword" placeholder="Search by name or student number">
+  <button (click)="searchStudents(searchKeyword)">Search</button>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date of Birth</th>
+      <th>Sex</th>
+      <th>Student Number</th>
+      <th>Grade</th>
+      <th>Profile Picture</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let student of students">
+      <td>{{ student.id }}</td>
+      <td>{{ student.firstName }}</td>
+      <td>{{ student.lastName }}</td>
+      <td>{{ student.dateOfBirth }}</td>
+      <td>{{ student.sex }}</td>
+      <td>{{ student.studentNumber }}</td>
+      <td>{{ student.grade }}</td>
+      <td>{{ student.profilePicture }}</td>
+      <td>
+        <button (click)="updateStudent(student)">Update</button>
+        <button (click)="deleteStudent(student.id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+  <h3>Add New Student</h3>
+  <div>
+    <input type="text" [(ngModel)]="newStudent.firstName" placeholder="First Name">
+    <input type="text" [(ngModel)]="newStudent.lastName" placeholder="Last Name">
+    <input type="text" [(ngModel)]="newStudent.dateOfBirth" placeholder="Date of Birth">
+    <input type="text" [(ngModel)]="newStudent.sex" placeholder="Sex">
+    <input type="text" [(ngModel)]="newStudent.studentNumber" placeholder="Student Number">
+    <input type="text" [(ngModel)]="newStudent.grade" placeholder="Grade">
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <button (click)="addStudent()">Add</button>
+  </div>
+</div>

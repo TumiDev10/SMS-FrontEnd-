@@ -1,0 +1,22 @@
+<div>
+  <h2>User List</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user.userId }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <!-- Only display delete button for admin users -->
+        <button *ngIf="user.role === 'Admin'" (click)="deleteUser(user.id)">Delete</button>
+        <!-- Only display update button for admin users -->
+        <button *ngIf="user.role === 'Admin'" (click)="updateUser(user.id)">Update</button>
+      </td>
+    </tr>
+  </table>
+</div>

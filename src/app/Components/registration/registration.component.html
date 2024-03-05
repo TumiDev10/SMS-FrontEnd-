@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="form">
+    <h2>Register</h2>
+    <div *ngIf="error" class="error">{{ error }}</div>
+    <div class="input-group">
+      <input type="text" [(ngModel)]="username" placeholder="Username">
+    </div>
+    <div class="input-group">
+      <input type="password" [(ngModel)]="password" placeholder="Password">
+    </div>
+    <div class="input-group">
+      <input type="role" [(ngModel)]="role" placeholder="Role">
+    </div>
+    <button class="button" (click)="register()">Register</button>
+  </div>
+</div>
